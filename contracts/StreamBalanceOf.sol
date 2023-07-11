@@ -7,8 +7,6 @@ import {ISuperToken} from "@superfluid-finance/ethereum-contracts/contracts/inte
 
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
 
-import { IResolver } from "@superfluid-finance/ethereum-contracts/contracts/interfaces/utils/IResolver.sol";
-
 abstract contract ENS {
     function resolver(bytes32 node) public virtual view returns (Resolver);
 }
