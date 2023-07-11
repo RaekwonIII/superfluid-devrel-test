@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@superfluid-finance/sdk-core": "^0.6.6",
     "@superfluid-finance/tokenlist": "^1.2.0",
     "@superfluid-finance/widget": "^0.0.8",
     "@types/node": "20.4.1",

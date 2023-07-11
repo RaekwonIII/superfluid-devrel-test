@@ -84,7 +84,6 @@ function App() {
           paymentDetails.paymentOptions[0].receiverAddress =
             (lensAddress as `0x${string}`) ||
             paymentDetails.paymentOptions[0].receiverAddress;
-          console.log(paymentDetails)
         }
       );
     } catch (err) {
