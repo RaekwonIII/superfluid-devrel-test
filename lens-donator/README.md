@@ -1,6 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Create Superfluid Subscriptions to Lens holders
 
-## Getting Started
+This simple frontend uses the Superfluid Subscription widget, from Superfluid team, to create a stream of `fUSDCx` tokens between two addresses, **only if the receiver is the holder of a Lens handle**.
+
+The sender can login to the page using a Web3 wallet, thanks to WAGMI library, insert the receiver address and verify that they are holders of a Lens profile [using Lens' public API](https://docs.lens.xyz/docs/get-profiles#get-by-owned-by).
+
+
+## Environment variables
+
+Look at `.env.example` file, create a copy of it, named `.env` and fill in the empty variables. For this project, an Infura account was used, but any other RPC url would do.
+
+## Start the server
 
 First, run the development server:
 
@@ -14,21 +23,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## "Bonus" page
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+An additional `contract` page has been created, accessible via [http://localhost:3000/contract](http://localhost:3000/contract) which can be used to test the [smart contract defined in the parent project](../contracts/StreamBalanceOf.sol).
+This page [uses `ethers.js` to resolve](https://docs.ens.domains/dapp-developer-guide/resolving-names) `vitalik.eth` to its address, and only verifies the existence of streams from a given `sender` address to `vitalik.eth`.
